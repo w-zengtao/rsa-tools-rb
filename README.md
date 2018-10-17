@@ -57,7 +57,7 @@ Rsa::Tools.verify(public_key, data, original_data) # this returns true or false
 * `Encrypt & Decrypt`
 
 ```ruby
-# I advice you use this pair while your user to not need have his own private_key (ToC)
+# I advice you use this pair while your user do not need have his own private_key (ToC)
 
 Rsa::Tools.encrypt(private_key, data)       # this returns the encrypted string
 Rsa::Tools.decrypt(public_key, encrypted)   # this returns the original data
