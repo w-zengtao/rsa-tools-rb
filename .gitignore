@@ -6,6 +6,10 @@
 /pkg/
 /spec/reports/
 /tmp/
+/keys/public_key.pem
+/keys/private_key.pem
+
+*.gem
 
 # rspec failure tracking
 .rspec_status
