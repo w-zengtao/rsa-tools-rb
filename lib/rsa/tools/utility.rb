@@ -15,5 +15,26 @@ module Rsa::Tools
       sign = key.sign(OpenSSL::Digest::SHA256.new, Digest::MD5.hexdigest(data.force_encoding("utf-8")))
       Base64.strict_encode64(sign)
     end
+
+    def self.encrypt(private_key, data)
+      key = OpenSSL::PKey::RSA.new(private_key)
+      return key.private_encrypt(data)
+    end
+
+    def self.decrypt(public_key, encrypted)
+      key = OpenSSL::PKey::RSA.new(public_key)
+      return key.public_decrypt(encrypted)
+    end
+
+
+    def self.pub_encrypt(public_key, data)
+      key = OpenSSL::PKey::RSA.new(public_key)
+      return key.public_encrypt(data)
+    end
+
+    def self.pri_decrypt(private_key, encrypted)
+      key = OpenSSL::PKey::RSA.new(private_key)
+      return key.private_decrypt(encrypted)
+    end
   end
 end
