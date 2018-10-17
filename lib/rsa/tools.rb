@@ -12,7 +12,7 @@ module Rsa::Tools
   def self.sign(private_key, data)
     Utility.sign(private_key, data)
   end
-  
+
   # TO C的业务 & 私钥加密 公钥解密
   def self.encrypt(private_key, data)
     Utility.encrypt(private_key, data)
@@ -35,7 +35,7 @@ module Rsa::Tools
     return Generator.key_pairs
   end
 
-  def self.pem_pairs(pub_path = nil, pri_path = nil)
-    return Generator.pem_pairs(pub_path, pri_path)
+  def self.pem_pairs(pri_path = nil, pub_path = nil)
+    return Generator.pem_pairs(pri_path, pub_path)
   end
 end

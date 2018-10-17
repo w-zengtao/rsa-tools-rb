@@ -2,7 +2,7 @@ require 'openssl'
 
 module Rsa::Tools
   class Generator
-    
+
     # call this function if you just want to save it to your database & send string to others
     def self.key_pairs
       private_key, public_key = generate_pairs
@@ -10,7 +10,7 @@ module Rsa::Tools
     end
 
     # call this function if pem files were wanted
-    def self.pem_pairs(pub_path = nil, pri_path = nil)
+    def self.pem_pairs(pri_path = nil, pub_path = nil)
       private_key, public_key = generate_pairs
       open 'keys/private_key.pem', 'w' do |io| io.write private_key.to_pem end
       open 'keys/public_key.pem',  'w' do |io| io.write public_key.to_pem  end

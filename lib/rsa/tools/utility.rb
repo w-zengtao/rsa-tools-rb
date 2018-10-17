@@ -18,23 +18,23 @@ module Rsa::Tools
 
     def self.encrypt(private_key, data)
       key = OpenSSL::PKey::RSA.new(private_key)
-      return key.private_encrypt(data)
+      return Base64.strict_encode64(key.private_encrypt(data))
     end
 
     def self.decrypt(public_key, encrypted)
       key = OpenSSL::PKey::RSA.new(public_key)
-      return key.public_decrypt(encrypted)
+      return key.public_decrypt(Base64.decode64(encrypted))
     end
 
 
     def self.pub_encrypt(public_key, data)
       key = OpenSSL::PKey::RSA.new(public_key)
-      return key.public_encrypt(data)
+      return Base64.strict_encode64(key.public_encrypt(data))
     end
 
     def self.pri_decrypt(private_key, encrypted)
       key = OpenSSL::PKey::RSA.new(private_key)
-      return key.private_decrypt(encrypted)
+      return key.private_decrypt(Base64.decode64(encrypted))
     end
   end
 end
